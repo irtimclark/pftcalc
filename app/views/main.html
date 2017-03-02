@@ -1,116 +1,125 @@
-<div ng-show="vm.input.matrixLoaded">
-  <legend>PFT Calc</legend>
+<div class="row">
 
-
-  <div class="row">
-
-    <div class="form-horizontal col-lg-6 col-xs-6">
-      <div class="form-group">
-        <label for="age" class="col-sm-6 control-label">Age</label>
-        <div class="col-sm-6">
-          <select class="form-control" id="age" ng-model="vm.input.age">
-            <option ng-value="17">17-20</option>
-            <option ng-value="21">21-25</option>
-            <option ng-value="26">26-30</option>
-            <option ng-value="31">31-35</option>
-            <option ng-value="36">36-40</option>
-            <option ng-value="41">41-45</option>
-            <option ng-value="46">46-50</option>
-            <option ng-value="51">51+</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="gender" class="col-sm-6 control-label">Gender</label>
-        <div class="col-sm-6">
-          <select class="form-control" id="gender" ng-model="vm.input.gender">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="altitude" class="col-sm-6 control-label">High Alt.</label>
-        <div class="col-sm-6">
-          <select class="form-control" id="altitude" ng-model="vm.input.altitude">
-            <option ng-value="true">Yes</option>
-            <option ng-value="false">No</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group" ng-class="{'has-error': vm.input.runTime && vm.input.rowTime }">
-        <label for="runTime" class="col-sm-6 control-label">Run Time</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" ng-model="vm.input.runTime" id="runTime" ui-mask='99:59'
-                 model-view-value='true' placeholder="MM:SS" ui-mask-placeholder>
-        </div>
-        <div class="col-sm-6">
-
-          <span ng-show="vm.runTime && vm.rowTime" class="help-block">Please choose either run or row, not both</span>
-        </div>
-      </div>
-      <div class="form-group" ng-class="{'has-error': vm.input.runTime && vm.input.rowTime }">
-        <label for="rowTime" class="col-sm-6 control-label">Row Time</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" ng-disabled="vm.input.age<46" ng-model="vm.input.rowTime" id="rowTime"
-                 model-view-value='true' placeholder="MM:SS" ui-mask='99:59' ui-mask-placeholder>
-          <!--This is-->
-          <!--{{vm}}-->
-        </div>
-        <div class="col-sm-6">
-          <span class="label label-primary">{{vm.rowTimeScore()}}</span>
-        </div>
-        <span ng-show="vm.input.runTime && vm.input.rowTime" class="help-block">Please choose either run or row, not both</span>
-      </div>
-
-      <div class="form-group" ng-class="{'has-error': vm.input.pushups && vm.input.pullups }">
-        <label for="pullups" class="col-sm-6 control-label">Pullups</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" id="pullups" placeholder="Pullups" ng-model="vm.input.pullups">
-        </div>
-        <div class="col-sm-6">
-          <span class="label label-primary">{{vm.pullupsScore()}}</span>
-        </div>
-        <span ng-show="vm.input.pushups && vm.input.pullups" class="help-block">Please choose either pullups or pushups, not both</span>
-      </div>
-      <!--{{vm.pftCalculationResult}}-->
-      <div class="form-group" ng-class="{'has-error': vm.input.pushups && vm.input.pullups }">
-        <label for="pushups" class="col-sm-6 control-label">Pushups</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" id="pushups" placeholder="Pushups" ng-model="vm.input.pushups">
-        </div>
-        <div class="col-sm-6">
-          <span class="label label-primary">{{vm.pushupsScore()}}</span>
-        </div>
-        <span ng-show="vm.input.pushups && vm.input.pullups" class="help-block">Please choose either pullups or pushups, not both</span>
-      </div>
-
-      <div class="form-group">
-        <label for="crunches" class="col-sm-6 control-label">Crunches</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" id="crunches" placeholder="Crunches" ng-model="vm.input.crunches">
-        </div>
-        <div class="col-sm-6">
-          <span class="label label-primary">{{vm.crunchesScore()}}</span>
-        </div>
+  <div class="form-horizontal col-lg-6 col-xs-6">
+    <div class="form-group">
+      <label for="age" class="col-sm-6 control-label">Age</label>
+      <div class="col-sm-6">
+        <select class="form-control" id="age" ng-model="vm.input.age">
+          <option ng-value="17">17-20</option>
+          <option ng-value="21">21-25</option>
+          <option ng-value="26">26-30</option>
+          <option ng-value="31">31-35</option>
+          <option ng-value="36">36-40</option>
+          <option ng-value="41">41-45</option>
+          <option ng-value="46">46-50</option>
+          <option ng-value="51">51+</option>
+        </select>
       </div>
     </div>
 
-    <div class="col-lg-6 col-xs-6">
-      <div class="jumbotron">
+    <div class="form-group">
+      <label for="gender" class="col-sm-6 control-label">Gender</label>
+      <div class="col-sm-6">
+        <select class="form-control" id="gender" ng-model="vm.input.gender">
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+      </div>
+    </div>
 
-        <h1>Total: {{vm.pftCalculationResult.TotalPoints}}&nbsp;</h1>
-        <h2>{{vm.pftCalculationResult.Class}}&nbsp;</h2>
+    <div class="form-group">
+      <label for="altitude" class="col-sm-6 control-label">High Alt.</label>
+      <div class="col-sm-6">
+        <select class="form-control" id="altitude" ng-model="vm.input.altitude">
+          <option ng-value="true">Yes</option>
+          <option ng-value="false">No</option>
+        </select>
+      </div>
+    </div>
 
-        <h5>Run Score</h5>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" ng-class="getCssClassForScore(vm.pftCalculationResult.RunPoints)"
-               style="width: {{vm.pftCalculationResult.RunPoints}}%;">
-            <span class="">{{vm.pftCalculationResult.RunPoints}}</span>
-          </div>
+    <div class="form-group" ng-class="{'has-error': vm.input.runTime && vm.input.rowTime }">
+      <label for="runTime" class="col-sm-6 control-label">Run Time</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" ng-model="vm.input.runTime" id="runTime" ui-mask='99:59'
+               model-view-value='true' placeholder="MM:SS" ui-mask-placeholder>
+        <span ng-show="vm.input.runTime && vm.input.rowTime" class="help-block">Please casdhoose either run or row, not both</span>
+      </div>
+
+
+    </div>
+    <div class="form-group" ng-class="{'has-error': vm.input.runTime && vm.input.rowTime }">
+      <label for="rowTime" class="col-sm-6 control-label">Row Time</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" ng-disabled="vm.input.age<46" ng-model="vm.input.rowTime" id="rowTime"
+               model-view-value='true' placeholder="MM:SS" ui-mask='99:59' ui-mask-placeholder>
+        <span ng-show="vm.input.runTime && vm.input.rowTime" class="help-block">Please choose either run or row, not both</span>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': vm.input.pushups && vm.input.pullups }">
+      <label for="pullups" class="col-sm-6 control-label">Pullups</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="pullups" placeholder="Pullups" ng-model="vm.input.pullups">
+        <span ng-show="vm.input.pushups && vm.input.pullups" class="help-block">Please choose either pullups or pushups, not both</span>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': vm.input.pushups && vm.input.pullups }">
+      <label for="pushups" class="col-sm-6 control-label">Pushups</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="pushups" placeholder="Pushups" ng-model="vm.input.pushups">
+        <span ng-show="vm.input.pushups && vm.input.pullups" class="help-block">Please choose either pullups or pushups, not both</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="crunches" class="col-sm-6 control-label">Crunches</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="crunches" placeholder="Crunches" ng-model="vm.input.crunches">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-xs-6">
+    <div class="well">
+
+      <div class="pull-left">
+        <h2>Total: {{vm.pftCalculationResult.TotalPoints}}&nbsp;</h2>
+      </div>
+
+      <div class="pull-right" ng-show="vm.pftCalculationResult">
+
+        <h3>
+          <span class="label label-{{vm.pftCalculationResult.Class === 'Failed' ? 'danger' : 'success'}}">{{vm.pftCalculationResult.Class}}&nbsp;</span>
+        </h3>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <h4>Run / Row Score</h4>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar"
+             ng-class="vm.getCssClassForScore(vm.pftCalculationResult.RunRowCalculatedPoints)"
+             style="width: {{vm.pftCalculationResult.RunRowCalculatedPoints}}%;">
+          <span class="">{{vm.pftCalculationResult.RunRowCalculatedPoints}}</span>
+        </div>
+      </div>
+
+      <h4>Pullup / Pushup Score</h4>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar"
+             ng-class="vm.getCssClassForScore(vm.pftCalculationResult.PushPullCalculatedPoints)"
+             style="width: {{vm.pftCalculationResult.PushPullCalculatedPoints}}%;">
+          <span class="">{{vm.pftCalculationResult.PushPullCalculatedPoints}}</span>
+        </div>
+      </div>
+
+      <h4>Crunches Score</h4>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar"
+             ng-class="vm.getCssClassForScore(vm.pftCalculationResult.CrunchPoints)"
+             style="width: {{vm.pftCalculationResult.CrunchPoints}}%;">
+          <span class="">{{vm.pftCalculationResult.CrunchPoints}}</span>
         </div>
       </div>
     </div>

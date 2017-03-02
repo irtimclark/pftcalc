@@ -6,18 +6,30 @@ describe('Controller: MainCtrl', function () {
   beforeEach(module('pftcalcApp'));
 
   var MainCtrl,
+    $httpBackend,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope,_$httpBackend_) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    $httpBackend = _$httpBackend_;
+    jasmine.getJSONFixtures().fixturesPath = '/base/app/data';
+    $httpBackend.whenGET('data/matrix.json').respond(getJSONFixture('matrix.json'));
+    MainCtrl = $controller('MainCtrl as vm', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+  it('should return the correct css class for a score', function () {
+    expect(MainCtrl.getCssClassForScore(0)).toBe("progress-bar-danger");
+  });
+
+  it('should clear out a row score when the age changes to less than 46', function () {
+    MainCtrl.input.age='46';
+    MainCtrl.input.rowTime='12:20';
+    MainCtrl.input.age='17';
+    scope.$digest();
+    expect(MainCtrl.input.rowTime).toBe("");
   });
 });

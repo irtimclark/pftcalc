@@ -26,7 +26,7 @@ angular.module('pftcalcApp')
           });
         }
         return deferred.promise;
-      }
+      };
 
       self.findScoreInMatrix = function (val, arr, lowScoreIsBetter) {
         //arr (should) be an array that has scores already ordered
@@ -58,7 +58,9 @@ angular.module('pftcalcApp')
           CrunchPoints: null,
           TotalPoints: null,
           PullupPoints: null,
-          PushupPoints: null
+          PushupPoints: null,
+          PushPullCalculatedPoints: null,
+          RunRowCalculatedPoints: null
         };
 
         if (!self.scoreMatrix){
@@ -70,7 +72,7 @@ angular.module('pftcalcApp')
             return entry.MinAge <= age && entry.MaxAge >= age;
           });
           return filteredMatrix;
-        }
+        };
 
         result.RunPoints = self.findScoreInMatrix(runScore, ageGenderFilter("3MILERUN"),true);
         result.RowPoints = self.findScoreInMatrix(rowScore, ageGenderFilter("ROW"),true);
@@ -78,7 +80,11 @@ angular.module('pftcalcApp')
         result.CrunchPoints = self.findScoreInMatrix(crunches, ageGenderFilter("CRUNCH"),false);
         result.PullupPoints = self.findScoreInMatrix(pullUps, ageGenderFilter("PULLUP"),false);
         result.TotalPoints = result.PullupPoints + result.PushupPoints + result.RunPoints + result.RowPoints + result.CrunchPoints;
-        if (result.RowPoints + result.RunPoints == 0 || result.CrunchPoints == 0 || result.PushupPoints + result.PullupPoints == 0){
+
+        result.PushPullCalculatedPoints = result.PullupPoints + result.PushupPoints;
+        result.RunRowCalculatedPoints = result.RunPoints + result.RowPoints;
+
+        if (result.RowPoints + result.RunPoints === 0 || result.CrunchPoints === 0 || result.PushupPoints + result.PullupPoints === 0){
           result.Class = "Failed";
         }
         else {
@@ -90,5 +96,5 @@ angular.module('pftcalcApp')
       return{
         getScoreMatrix : self.getScoreMatrix,
         calculateScore : self.calculateScore
-      }
+      };
   });
