@@ -6,7 +6,7 @@
 (function(window){
   var matrixHelper = window.matrixHelper || (window.matrixHelper = {});
   matrixHelper.calculateEventScore = function(theEvent, score, lowScoreIsBetter, filterProps) {
-    var altitudeProperty = filterProps.scoreMatrix[theEvent][filterProps.gender].hasOwnProperty("HighAlt") && filterProps.atAltitude ? "HighAlt" : "LowAlt";
+    var altitudeProperty = filterProps.scoreMatrix[theEvent][filterProps.gender].hasOwnProperty('HighAlt') && filterProps.atAltitude ? 'HighAlt' : 'LowAlt';
     var filteredMatrix = filterProps.scoreMatrix[theEvent][filterProps.gender][altitudeProperty].filter(function(entry){
       return entry.MinAge <= filterProps.age && entry.MaxAge >= filterProps.age;
     });
@@ -16,7 +16,7 @@
 
   matrixHelper.findScoreInMatrix = function (val, arr, lowScoreIsBetter) {
     //arr (should) be an array that has scores already ordered
-    if (val === null || val === "" || isNaN(val)) {
+    if (val === null || val === '' || isNaN(val)) {
       return 0;
     }
 
@@ -37,7 +37,7 @@
   };
 
   matrixHelper.convertTimeToSeconds = function (time) {
-    if (time === null || time === "" || !/\d{2}:\d{2}(\d{2}:)?/.test(time)) {
+    if (time === null || time === '' || !/\d{2}:\d{2}(\d{2}:)?/.test(time)) {
       return null;
     }
 

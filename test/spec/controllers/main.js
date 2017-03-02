@@ -22,7 +22,7 @@ describe('Controller: MainCtrl', function () {
   }));
 
   it('should return the correct css class for a score', function () {
-    expect(MainCtrl.getCssClassForScore(0)).toBe("progress-bar-danger");
+    expect(MainCtrl.getCssClassForScore(0)).toBe('progress-bar-danger');
   });
 
   it('should clear out a row score when the age changes to less than 46', function () {
@@ -30,6 +30,6 @@ describe('Controller: MainCtrl', function () {
     MainCtrl.input.rowTime='12:20';
     MainCtrl.input.age='17';
     scope.$digest();
-    expect(MainCtrl.input.rowTime).toBe("");
+    expect(MainCtrl.input.rowTime).toBe('');
   });
 });

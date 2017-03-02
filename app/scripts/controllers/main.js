@@ -15,27 +15,27 @@ angular.module('pftcalcApp')
     vm.input.crunches = null;
     vm.input.pullups = null;
     vm.input.rowTime = null;
-    vm.input.gender = "M";
+    vm.input.gender = 'M';
     vm.input.altitude = false;
     vm.input.age = 17;
     vm.pftCalculationResult = {};
 
     vm.getCssClassForScore = function (score) {
       if (score === 0) {
-        return "progress-bar-danger";
+        return 'progress-bar-danger';
       }
       if (score >= 78) {
-        return "progress-bar-success";
+        return 'progress-bar-success';
       }
       if (score >= 66) {
-        return "progress-bar-info";
+        return 'progress-bar-info';
       }
-      return "progress-bar-warning";
+      return 'progress-bar-warning';
     };
 
     $scope.$watch('vm.input.age', function (newValue) {
       if (newValue < 46) {
-        vm.input.rowTime = "";
+        vm.input.rowTime = '';
       }
     });
 
@@ -46,8 +46,8 @@ angular.module('pftcalcApp')
           vm.input.altitude,
           matrixHelper.convertTimeToSeconds(vm.input.rowTime),
           matrixHelper.convertTimeToSeconds(vm.input.runTime),
-          vm.input.pullups === "" ? null : vm.input.pullups,
-          vm.input.pushups === "" ? null : vm.input.pushups,
+          vm.input.pullups === '' ? null : vm.input.pullups,
+          vm.input.pushups === '' ? null : vm.input.pushups,
           vm.input.crunches);
       }
       return null;

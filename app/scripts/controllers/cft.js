@@ -14,27 +14,27 @@ angular.module('pftcalcApp')
     vm.input.acl = null;
     vm.input.mtc = null;
     vm.input.muf = null;
-    vm.input.gender = "M";
+    vm.input.gender = 'M';
     vm.input.altitude = false;
     vm.input.age = 17;
     vm.cftCalculationResult = {};
 
     vm.getCssClassForScore = function (score) {
       if (score === 0) {
-        return "progress-bar-danger";
+        return 'progress-bar-danger';
       }
       if (score >= 78) {
-        return "progress-bar-success";
+        return 'progress-bar-success';
       }
       if (score >= 66) {
-        return "progress-bar-info";
+        return 'progress-bar-info';
       }
-      return "progress-bar-warning";
+      return 'progress-bar-warning';
     };
 
     $scope.$watch('vm.input.age', function (newValue) {
       if (newValue < 46) {
-        vm.input.rowTime = "";
+        vm.input.rowTime = '';
       }
     });
 

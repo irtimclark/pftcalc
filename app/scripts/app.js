@@ -18,12 +18,12 @@ angular
   ]).config(['uiMask.ConfigProvider', function (uiMaskConfigProvider) {
   uiMaskConfigProvider.maskDefinitions({'5': /[0-5]/});
 }]).config(function ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/pft");
+  $urlRouterProvider.otherwise('/pft');
 
   $stateProvider
     .state('pft', {
-      url: "/pft",
-      templateUrl: "views/main.html",
+      url: '/pft',
+      templateUrl: 'views/main.html',
       controller: 'MainCtrl as vm',
       resolve: {
         matrixDownloaded: function (pftCalculatorService) {
@@ -32,8 +32,8 @@ angular
       }
     })
     .state('cft', {
-      url: "/cft",
-      templateUrl: "views/cft.html",
+      url: '/cft',
+      templateUrl: 'views/cft.html',
       controller: 'CftCtrl as vm',
       resolve: {
         matrixDownloaded: function (cftCalculatorService) {

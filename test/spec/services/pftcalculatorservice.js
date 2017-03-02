@@ -22,7 +22,7 @@ describe('Service: pftCalculatorService', function () {
 
   it('should return the score matrix', function (done) {
     pftCalculatorService.getScoreMatrix().then(function (stuff) {
-      expect(stuff["3MILERUN"].F.LowAlt).toBeDefined();
+      expect(stuff['3MILERUN'].F.LowAlt).toBeDefined();
       done();
     });
     $httpBackend.flush();
@@ -31,7 +31,7 @@ describe('Service: pftCalculatorService', function () {
   it('should return first class for a good score', function (done) {
     pftCalculatorService.getScoreMatrix().then(function () {
       //self.calculateScore = function(gender, age, atAltitude, rowScore, runScore, pullUps, pushUps, crunches) {
-      var result = pftCalculatorService.calculateScore("M",17,false,null,60*15,25,null,100);
+      var result = pftCalculatorService.calculateScore('M',17,false,null,60*15,25,null,100);
       expect(result.Class).toBe('1st Class');
       done();
     });
@@ -41,7 +41,7 @@ describe('Service: pftCalculatorService', function () {
   it('should return fail for any failing score', function (done) {
     pftCalculatorService.getScoreMatrix().then(function () {
       //self.calculateScore = function(gender, age, atAltitude, rowScore, runScore, pullUps, pushUps, crunches) {
-      var result = pftCalculatorService.calculateScore("M",17,false,null,60*15,25,null,8);
+      var result = pftCalculatorService.calculateScore('M',17,false,null,60*15,25,null,8);
       expect(result.Class).toBe('Failed');
       done();
     });
