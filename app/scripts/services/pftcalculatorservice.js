@@ -8,7 +8,7 @@
  * Service in the pftcalcApp.
  */
 angular.module('pftcalcApp')
-  .service('pftCalculatorService', function ($http, $q) {
+  .service('pftCalculatorService', function ($http, $q, matrixHelper) {
       this.scoreMatrix = null;
       var self = this;
       self.getScoreMatrix = function(){
@@ -28,28 +28,6 @@ angular.module('pftcalcApp')
         return deferred.promise;
       };
 
-      self.findScoreInMatrix = function (val, arr, lowScoreIsBetter) {
-        //arr (should) be an array that has scores already ordered
-        if (val === null || val === "" || isNaN(val)) {
-          return 0;
-        }
-
-        //if our score is beyond the bounds of the array, then give a 0
-        if ((!lowScoreIsBetter && arr[0].Score > val) || (lowScoreIsBetter && val > arr[arr.length - 1].Score)) {
-          return 0;
-        }
-
-        var lastScore = arr[arr.length - 1];
-        for (var i = arr.length - 1; i >= 0; i--) {
-          if (val > arr[i].Score) {
-            return lastScore.Points;
-          }
-          lastScore = arr[i];
-        }
-
-        return arr[0].Points;
-      };
-
       self.calculateScore = function(gender, age, atAltitude, rowScore, runScore, pullUps, pushUps, crunches) {
         var result = {
           Class: null,
@@ -66,19 +44,15 @@ angular.module('pftcalcApp')
         if (!self.scoreMatrix){
           return result;
         }
-        var ageGenderFilter = function(theEvent){
-          var altitudeProperty = self.scoreMatrix[theEvent][gender].hasOwnProperty("HighAlt") && atAltitude ? "HighAlt" : "LowAlt";
-          var filteredMatrix = self.scoreMatrix[theEvent][gender][altitudeProperty].filter(function(entry){
-            return entry.MinAge <= age && entry.MaxAge >= age;
-          });
-          return filteredMatrix;
-        };
 
-        result.RunPoints = self.findScoreInMatrix(runScore, ageGenderFilter("3MILERUN"),true);
-        result.RowPoints = self.findScoreInMatrix(rowScore, ageGenderFilter("ROW"),true);
-        result.PushupPoints = self.findScoreInMatrix(pushUps, ageGenderFilter("PUSHUP"),false);
-        result.CrunchPoints = self.findScoreInMatrix(crunches, ageGenderFilter("CRUNCH"),false);
-        result.PullupPoints = self.findScoreInMatrix(pullUps, ageGenderFilter("PULLUP"),false);
+        var filterProps = {gender: gender, atAltitude: atAltitude, age: age, scoreMatrix: self.scoreMatrix };
+        var calcEventScore = matrixHelper.calculateEventScore;
+
+        result.RunPoints = calcEventScore("3MILERUN", runScore, true, filterProps);
+        result.RowPoints = calcEventScore("ROW", rowScore, true, filterProps);
+        result.PushupPoints = calcEventScore("PUSHUP", pushUps, false, filterProps);
+        result.CrunchPoints = calcEventScore("CRUNCH", crunches, false, filterProps);
+        result.PullupPoints = calcEventScore("PULLUP", pullUps, false, filterProps);
         result.TotalPoints = result.PullupPoints + result.PushupPoints + result.RunPoints + result.RowPoints + result.CrunchPoints;
 
         result.PushPullCalculatedPoints = result.PullupPoints + result.PushupPoints;

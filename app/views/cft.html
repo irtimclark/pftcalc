@@ -1,0 +1,106 @@
+<div class="form-horizontal col-lg-6 col-xs-6">
+  <div class="form-group">
+    <label for="age" class="col-sm-6 control-label">Age</label>
+    <div class="col-sm-6">
+      <select class="form-control" id="age" ng-model="vm.input.age">
+        <option ng-value="17">17-20</option>
+        <option ng-value="21">21-25</option>
+        <option ng-value="26">26-30</option>
+        <option ng-value="31">31-35</option>
+        <option ng-value="36">36-40</option>
+        <option ng-value="41">41-45</option>
+        <option ng-value="46">46-50</option>
+        <option ng-value="51">51+</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="gender" class="col-sm-6 control-label">Gender</label>
+    <div class="col-sm-6">
+      <select class="form-control" id="gender" ng-model="vm.input.gender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="altitude" class="col-sm-6 control-label">High Alt.</label>
+    <div class="col-sm-6">
+      <select class="form-control" id="altitude" ng-model="vm.input.altitude">
+        <option ng-value="true">Yes</option>
+        <option ng-value="false">No</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="acl" class="col-sm-6 control-label">Ammo Can Lift</label>
+    <div class="col-sm-6">
+      <input type="number"  class="form-control" ng-model="vm.input.acl" id="acl" placeholder="ACL"
+             ui-mask-placeholder>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="mtc" class="col-sm-6 control-label">Move To Contact</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="mtc" ng-model="vm.input.mtc" model-view-value='true'
+             placeholder="MM:SS" ui-mask='99:59' ui-mask-placeholder>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="muf" class="col-sm-6 control-label">Maneuver Under Fire</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="muf" ng-model="vm.input.muf" model-view-value='true'
+             placeholder="MM:SS" ui-mask='99:59' ui-mask-placeholder>
+    </div>
+  </div>
+</div>
+<div class="col-lg-6 col-xs-6">
+  <div class="well">
+
+    <div class="pull-left">
+      <h2>Total: {{vm.cftCalculationResult.TotalPoints}}&nbsp;</h2>
+    </div>
+
+    <div class="pull-right" ng-show="vm.cftCalculationResult">
+
+      <h3>
+        <span class="label label-{{vm.cftCalculationResult.Class === 'Failed' ? 'danger' : 'success'}}">{{vm.cftCalculationResult.Class}}&nbsp;</span>
+      </h3>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <h4>ACL Score</h4>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar"
+           ng-class="vm.getCssClassForScore(vm.cftCalculationResult.AmmoPoints)"
+           style="width: {{vm.cftCalculationResult.AmmoPoints}}%;">
+        <span class="">{{vm.cftCalculationResult.AmmoPoints}}</span>
+      </div>
+    </div>
+
+    <h4>MTC Score</h4>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar"
+           ng-class="vm.getCssClassForScore(vm.cftCalculationResult.MTCPoints)"
+           style="width: {{vm.cftCalculationResult.MTCPoints}}%;">
+        <span class="">{{vm.cftCalculationResult.MTCPoints}}</span>
+      </div>
+    </div>
+
+    <h4>MUF Score</h4>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar"
+           ng-class="vm.getCssClassForScore(vm.cftCalculationResult.MUFPoints)"
+           style="width: {{vm.cftCalculationResult.MUFPoints}}%;">
+        <span class="">{{vm.cftCalculationResult.MUFPoints}}</span>
+      </div>
+    </div>
+  </div>
+</div>

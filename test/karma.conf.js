@@ -31,8 +31,9 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/jasmine/lib/jasmine-core/jasmine.js',
-      // endbower
       'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
+      // endbower
+      'app/scripts/matrixhelper.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js',

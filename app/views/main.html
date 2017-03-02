@@ -1,5 +1,3 @@
-<div class="row">
-
   <div class="form-horizontal col-lg-6 col-xs-6">
     <div class="form-group">
       <label for="age" class="col-sm-6 control-label">Age</label>
@@ -59,7 +57,7 @@
     <div class="form-group" ng-class="{'has-error': vm.input.pushups && vm.input.pullups }">
       <label for="pullups" class="col-sm-6 control-label">Pullups</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" id="pullups" placeholder="Pullups" ng-model="vm.input.pullups">
+        <input type="number" class="form-control" id="pullups" placeholder="Pullups" ng-model="vm.input.pullups">
         <span ng-show="vm.input.pushups && vm.input.pullups" class="help-block">Please choose either pullups or pushups, not both</span>
       </div>
     </div>
@@ -67,7 +65,7 @@
     <div class="form-group" ng-class="{'has-error': vm.input.pushups && vm.input.pullups }">
       <label for="pushups" class="col-sm-6 control-label">Pushups</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" id="pushups" placeholder="Pushups" ng-model="vm.input.pushups">
+        <input type="number" class="form-control" id="pushups" placeholder="Pushups" ng-model="vm.input.pushups">
         <span ng-show="vm.input.pushups && vm.input.pullups" class="help-block">Please choose either pullups or pushups, not both</span>
       </div>
     </div>
@@ -75,20 +73,18 @@
     <div class="form-group">
       <label for="crunches" class="col-sm-6 control-label">Crunches</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" id="crunches" placeholder="Crunches" ng-model="vm.input.crunches">
+        <input type="number" class="form-control" id="crunches" placeholder="Crunches" ng-model="vm.input.crunches">
       </div>
     </div>
   </div>
 
   <div class="col-lg-6 col-xs-6">
     <div class="well">
-
       <div class="pull-left">
         <h2>Total: {{vm.pftCalculationResult.TotalPoints}}&nbsp;</h2>
       </div>
 
       <div class="pull-right" ng-show="vm.pftCalculationResult">
-
         <h3>
           <span class="label label-{{vm.pftCalculationResult.Class === 'Failed' ? 'danger' : 'success'}}">{{vm.pftCalculationResult.Class}}&nbsp;</span>
         </h3>
@@ -124,4 +120,3 @@
       </div>
     </div>
   </div>
-</div>
