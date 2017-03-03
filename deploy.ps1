@@ -121,6 +121,7 @@ if (Test-Path "$DEPLOYMENT_TARGET\package.json") {
   popd
 }
 
+npm install -g bower grunt-cli grunt
 grunt build
 
 ##################################################################################################################################

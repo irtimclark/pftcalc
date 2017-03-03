@@ -41,4 +41,14 @@ angular
 })
   .constant('matrixHelper', window.matrixHelper)
   .constant('_', window._)
-  ;
+  .run(function ($rootScope) {
+
+    $rootScope.stateIsLoading = false;
+    $rootScope.$on('$stateChangeStart', function () {
+      $rootScope.stateIsLoading = true;
+    });
+
+    $rootScope.$on('$stateChangeSuccess', function () {
+      $rootScope.stateIsLoading = false;
+    });
+  });
