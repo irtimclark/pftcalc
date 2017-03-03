@@ -60,15 +60,12 @@
 <div class="col-lg-6 col-xs-6">
   <div class="well">
 
-    <div class="pull-left">
-      <h2>Total: {{vm.cftCalculationResult.TotalPoints}}&nbsp;</h2>
+    <div class="pull-left pointLabel">
+      Total: {{vm.cftCalculationResult.TotalPoints}}
     </div>
 
-    <div class="pull-right" ng-show="vm.cftCalculationResult">
-
-      <h3>
-        <span class="label label-{{vm.cftCalculationResult.Class === 'Failed' ? 'danger' : 'success'}}">{{vm.cftCalculationResult.Class}}&nbsp;</span>
-      </h3>
+    <div class="classLabel pull-right" ng-show="vm.cftCalculationResult">
+      <span class="label label-{{vm.cftCalculationResult.Class === 'Failed' ? 'danger' : 'success'}}">{{vm.cftCalculationResult.Class}}&nbsp;</span>
     </div>
 
     <div class="clearfix"></div>

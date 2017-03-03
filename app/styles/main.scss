@@ -16,6 +16,26 @@ body {
   padding-top: 30px;
 }
 
+@media (max-width: $screen-xs) {
+  .classLabel{
+    font-size: 14px;
+    float: none !important;
+    clear: both;
+  }
+  .pointLabel{
+    font-size: 17px;
+  }
+}
+
+@media (min-width: $screen-xs) {
+  .classLabel {
+    font-size: 24px;
+  }
+  .pointLabel {
+    font-size: 27px;
+  }
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
