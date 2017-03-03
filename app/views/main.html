@@ -38,9 +38,8 @@
     <div class="form-group" ng-class="{'has-error': vm.input.runTime && vm.input.rowTime }">
       <label for="runTime" class="col-sm-6 control-label">Run Time</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" ng-model="vm.input.runTime" id="runTime" ui-mask='99:59'
-               model-view-value='true' placeholder="MM:SS" ui-mask-placeholder>
-        <span ng-show="vm.input.runTime && vm.input.rowTime" class="help-block">Please casdhoose either run or row, not both</span>
+        <input jqmask type="text" class="form-control" ng-model="vm.input.runTime" id="runTime">
+        <span ng-show="vm.input.runTime && vm.input.rowTime" class="help-block">Please choose either run or row, not both</span>
       </div>
 
 
@@ -48,8 +47,7 @@
     <div class="form-group" ng-class="{'has-error': vm.input.runTime && vm.input.rowTime }">
       <label for="rowTime" class="col-sm-6 control-label">Row Time</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" ng-disabled="vm.input.age<46" ng-model="vm.input.rowTime" id="rowTime"
-               model-view-value='true' placeholder="MM:SS" ui-mask='99:59' ui-mask-placeholder>
+        <input jqmask type="text" class="form-control" ng-disabled="vm.input.age<46" ng-model="vm.input.rowTime" id="rowTime" >
         <span ng-show="vm.input.runTime && vm.input.rowTime" class="help-block">Please choose either run or row, not both</span>
       </div>
     </div>

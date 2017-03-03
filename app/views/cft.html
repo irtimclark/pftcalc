@@ -38,16 +38,14 @@
   <div class="form-group">
     <label for="acl" class="col-sm-6 control-label">Ammo Can Lift</label>
     <div class="col-sm-6">
-      <input type="number"  class="form-control" ng-model="vm.input.acl" id="acl" placeholder="ACL"
-             ui-mask-placeholder>
+      <input type="number"  class="form-control" ng-model="vm.input.acl" id="acl" placeholder="ACL">
     </div>
   </div>
 
   <div class="form-group">
     <label for="mtc" class="col-sm-6 control-label">Move To Contact</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="mtc" ng-model="vm.input.mtc" model-view-value='true'
-             placeholder="MM:SS" ui-mask='99:59' ui-mask-placeholder>
+      <input type="text" class="form-control" id="mtc" ng-model="vm.input.mtc" jqmask>
     </div>
   </div>
 
@@ -55,8 +53,7 @@
   <div class="form-group">
     <label for="muf" class="col-sm-6 control-label">Maneuver Under Fire</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="muf" ng-model="vm.input.muf" model-view-value='true'
-             placeholder="MM:SS" ui-mask='99:59' ui-mask-placeholder>
+      <input type="text" class="form-control" id="muf" ng-model="vm.input.muf" jqmask>
     </div>
   </div>
 </div>

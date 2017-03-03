@@ -13,11 +13,8 @@ angular
     'ngAnimate',
     'ngSanitize',
     'ngTouch',
-    'ui.router',
-    'ui.mask'
-  ]).config(['uiMask.ConfigProvider', function (uiMaskConfigProvider) {
-  uiMaskConfigProvider.maskDefinitions({'5': /[0-5]/});
-}]).config(function ($stateProvider, $urlRouterProvider) {
+    'ui.router'
+  ]).config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/pft');
 
   $stateProvider
