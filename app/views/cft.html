@@ -74,7 +74,7 @@
     <div class="progress">
       <div class="progress-bar" role="progressbar"
            ng-class="vm.getCssClassForScore(vm.cftCalculationResult.AmmoPoints)"
-           style="width: {{vm.cftCalculationResult.AmmoPoints}}%;">
+           ng-style="{width: vm.cftCalculationResult.AmmoPoints + '%'}">
         <span class="">{{vm.cftCalculationResult.AmmoPoints}}</span>
       </div>
     </div>
@@ -83,7 +83,7 @@
     <div class="progress">
       <div class="progress-bar" role="progressbar"
            ng-class="vm.getCssClassForScore(vm.cftCalculationResult.MTCPoints)"
-           style="width: {{vm.cftCalculationResult.MTCPoints}}%;">
+           ng-style="{width: vm.cftCalculationResult.MTCPoints + '%'}">
         <span class="">{{vm.cftCalculationResult.MTCPoints}}</span>
       </div>
     </div>
@@ -92,7 +92,7 @@
     <div class="progress">
       <div class="progress-bar" role="progressbar"
            ng-class="vm.getCssClassForScore(vm.cftCalculationResult.MUFPoints)"
-           style="width: {{vm.cftCalculationResult.MUFPoints}}%;">
+           ng-style="{width: vm.cftCalculationResult.MUFPoints + '%'}">
         <span class="">{{vm.cftCalculationResult.MUFPoints}}</span>
       </div>
     </div>

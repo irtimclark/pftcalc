@@ -92,7 +92,7 @@
       <div class="progress">
         <div class="progress-bar" role="progressbar"
              ng-class="vm.getCssClassForScore(vm.pftCalculationResult.RunRowCalculatedPoints)"
-             style="width: {{vm.pftCalculationResult.RunRowCalculatedPoints}}%;">
+              ng-style="{width: vm.pftCalculationResult.RunRowCalculatedPoints + '%'}">
           <span class="">{{vm.pftCalculationResult.RunRowCalculatedPoints}}</span>
         </div>
       </div>
@@ -101,7 +101,7 @@
       <div class="progress">
         <div class="progress-bar" role="progressbar"
              ng-class="vm.getCssClassForScore(vm.pftCalculationResult.PushPullCalculatedPoints)"
-             style="width: {{vm.pftCalculationResult.PushPullCalculatedPoints}}%;">
+             ng-style="{width: vm.pftCalculationResult.PushPullCalculatedPoints + '%'}">
           <span class="">{{vm.pftCalculationResult.PushPullCalculatedPoints}}</span>
         </div>
       </div>
@@ -110,7 +110,7 @@
       <div class="progress">
         <div class="progress-bar" role="progressbar"
              ng-class="vm.getCssClassForScore(vm.pftCalculationResult.CrunchPoints)"
-             style="width: {{vm.pftCalculationResult.CrunchPoints}}%;">
+             ng-style="{width: vm.pftCalculationResult.CrunchPoints + '%'}">
           <span class="">{{vm.pftCalculationResult.CrunchPoints}}</span>
         </div>
       </div>
