@@ -11,14 +11,21 @@ angular.module('pftcalcApp')
   .controller('MainCtrl', function (pftCalculatorService, $scope, matrixHelper) {
     var vm = this;
     vm.input = {};
-    vm.input.runTime = null;
-    vm.input.crunches = null;
-    vm.input.pullups = null;
-    vm.input.rowTime = null;
-    vm.input.gender = 'M';
-    vm.input.altitude = false;
-    vm.input.age = 17;
-    vm.pftCalculationResult = {};
+
+
+    vm.reset = function(){
+      vm.input.runTime = null;
+      vm.input.crunches = null;
+      vm.input.pullups = null;
+      vm.input.pushups = null;
+      vm.input.rowTime = null;
+      vm.input.gender = 'M';
+      vm.input.altitude = false;
+      vm.input.age = 17;
+      vm.pftCalculationResult = {};
+    };
+
+    vm.reset();
 
     vm.getCssClassForScore = function (score) {
       if (score === 0) {

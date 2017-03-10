@@ -10,14 +10,18 @@
 angular.module('pftcalcApp')
   .controller('CftCtrl', function (cftCalculatorService, $scope, matrixHelper) {
     var vm = this;
-    vm.input = {};
-    vm.input.acl = null;
-    vm.input.mtc = null;
-    vm.input.muf = null;
-    vm.input.gender = 'M';
-    vm.input.altitude = false;
-    vm.input.age = 17;
-    vm.cftCalculationResult = {};
+    vm.reset = function(){
+      vm.input = {};
+      vm.input.acl = null;
+      vm.input.mtc = null;
+      vm.input.muf = null;
+      vm.input.gender = 'M';
+      vm.input.altitude = false;
+      vm.input.age = 17;
+      vm.cftCalculationResult = {};
+    };
+
+    vm.reset();
 
     vm.getCssClassForScore = function (score) {
       if (score === 0) {
