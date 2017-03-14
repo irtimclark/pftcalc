@@ -16,8 +16,4 @@ describe('Controller: CftCtrl', function () {
       // place here mocked dependencies
     });
   }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    //expect(CftCtrl.awesomeThings.length).toBe(3);
-  });
 });

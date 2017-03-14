@@ -13,7 +13,7 @@ describe('Service: pftCalculatorService', function () {
     pftCalculatorService = _pftCalculatorService_;
     $httpBackend = _$httpBackend_;
     jasmine.getJSONFixtures().fixturesPath = '/base/app/data';
-    $httpBackend.whenGET('data/matrix.json').respond(getJSONFixture('matrix.json'));
+    $httpBackend.whenGET('data/matrix.txt').respond(getJSONFixture('matrix.txt'));
   }));
 
   it('should do something', function () {

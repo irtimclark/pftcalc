@@ -17,7 +17,7 @@ angular.module('pftcalcApp')
           deferred.resolve(self.scoreMatrix);
         }
         else{
-          $http.get('data/cftmatrix.json').then(function(response){
+          $http.get('data/cftmatrix.txt').then(function(response){
             self.scoreMatrix = response.data;
             deferred.resolve(self.scoreMatrix);
           },function(response){

@@ -38,7 +38,7 @@ module.exports = function(config) {
       'test/spec/**/*.js',
 
       // JSON fixture
-      { pattern:  'app/data/**/*.json',
+      { pattern:  'app/data/**/*.txt',
         watched:  true,
         served:   true,
         included: false

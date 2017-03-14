@@ -14,7 +14,7 @@ describe('Controller: MainCtrl', function () {
     scope = $rootScope.$new();
     $httpBackend = _$httpBackend_;
     jasmine.getJSONFixtures().fixturesPath = '/base/app/data';
-    $httpBackend.whenGET('data/matrix.json').respond(getJSONFixture('matrix.json'));
+    $httpBackend.whenGET('data/matrix.txt').respond(getJSONFixture('matrix.txt'));
     MainCtrl = $controller('MainCtrl as vm', {
       $scope: scope
       // place here mocked dependencies
