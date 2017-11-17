@@ -40,12 +40,6 @@ angular.module('pftcalcApp')
       return 'progress-bar-warning';
     };
 
-    $scope.$watch('vm.input.age', function (newValue) {
-      if (newValue < 46) {
-        vm.input.rowTime = '';
-      }
-    });
-
     function doCalculation() {
       if ((vm.input.rowTime || vm.input.runTime) && vm.input.crunches && (vm.input.pullups || vm.input.pushups) && !(vm.input.rowTime && vm.input.runTime) && !(vm.input.pushups && vm.input.pullups)) {
         return pftCalculatorService.calculateScore(vm.input.gender,

@@ -47,7 +47,7 @@
     <div class="form-group" ng-class="{'has-error': vm.input.runTime && vm.input.rowTime }">
       <label for="rowTime" class="col-sm-6 control-label">Row Time</label>
       <div class="col-sm-6">
-        <input jqmask type="text" class="form-control" ng-disabled="vm.input.age<46" ng-model="vm.input.rowTime" id="rowTime" >
+        <input jqmask type="text" class="form-control" ng-model="vm.input.rowTime" id="rowTime" >
         <span ng-show="vm.input.runTime && vm.input.rowTime" class="help-block">Please choose either run or row, not both</span>
       </div>
     </div>
