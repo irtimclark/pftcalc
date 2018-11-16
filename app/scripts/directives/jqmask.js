@@ -11,7 +11,7 @@ angular.module('pftcalcApp')
     return {
       restrict: 'A',
       link: function postLink(scope, element) {
-        $(element).mask("00:00", {clearIfNotMatch: true, placeholder:'MM:SS'});
+        $(element).mask('00:00', {clearIfNotMatch: true, placeholder:'MM:SS'});
       }
     };
   });
