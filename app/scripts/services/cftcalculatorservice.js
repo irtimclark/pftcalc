@@ -53,7 +53,7 @@ angular.module('pftcalcApp')
           result.Class = 'Failed';
         }
         else {
-          result.Class = result.TotalPoints >= 235 ? '1st Class' : result.TotalPoints >= 200 ? 'Second Class' : result.TotalPoints >= 150 ? 'Third Class' : 'Fail';
+          result.Class = result.TotalPoints >= 235 ? '1st Class' : result.TotalPoints >= 200 ? 'Second Class' : result.TotalPoints >= 150 ? 'Third Class' : 'Failed';
         }
         return result;
       };
